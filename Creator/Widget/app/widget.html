@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JS API CDN-->
+    <script type="text/javascript"
+      src="https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>  
+ <!-- Custom alert-->
+ <link href="css/sweetalert.css" type="text/css" rel="stylesheet">
+ <script src="js/sweetalert.min.js" type="text/javascript"></script>
+
+    <!--Custom JS-->
+    <script type="text/javascript" src="js/validation.js"></script>
+    <script type="text/javascript" src="js/tabNavigation.js"></script>
+    <script type="text/javascript" src="js/factAndFind.js"></script>
+    <!--Custom CSS-->
+    <link href="css/style.css" rel="stylesheet">
+
+    <script>
+          var currentTab = 0; 
+          showTab(currentTab);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+
+      <!-- Logos -->
+      <div class="row CloudlionLogoDiv text-center mt-5">
+        <div class="col-md-6">
+          <img class="oracleHeader" align="left" src="images/oracle-header.png"
+            alt="CloudlionLogo">
+        </div>
+        <div class="col-md-6">
+          <img class="CloudlionLogo" align="Right" src="images/Rightimage.png"
+            alt="CloudlionLogo">
+        </div>
+      </div>
+
+      <!-- forms -->
+      <form action="#" class="mt-4" name="rmsForm" id="rmsForm">
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;" id="spanID">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+        <!-- General Information -->
+        <div class="tab">
+          <div class="row">
+            <h3 class="text-danger">Fact Find & Needs Analysis</h3>
+
+            <div class="row col-md-12 mt-3">
+              <div class="col-md-3">
+                <label for="date" class="form-label">Date :</label>
+              </div>
+              <div class="col-md-9">
+                <input type="date" class="form-control" id="date" placeholder
+                  name="date">
+              </div>
+            </div>
+
+            <div class="row col-md-12 mt-3">
+              <div class="col-md-3">
+                <label for="advisorName" class="form-label">Advisor Name :</label>
+              </div>
+              <div class="col-md-9">
+                <input type="text" class="form-control" id="advisorName"
+                  placeholder name="advisorName">
+              </div>
+            </div>
+
+            <div class="row col-md-12 mt-3">
+              <div class="col-md-3">
+                <label for="referredBy" class="form-label">Referred By :</label>
+              </div>
+              <div class="col-md-9">
+                <input type="text" class="form-control" id="referredBy"
+                  placeholder name="referredBy">
+              </div>
+            </div>
+          </div>
+          <div class="row col-md-12 mt-4">
+            <table class="table table-bordered ">
+              <thead>
+                <tr>
+                  <th class="text-danger" colspan="3">1. General Information</th>
+
+                </tr>
+                <tr>
+                  <th class="text-center">Client 1</th>
+                  <th class="text-center">Client 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="name1" class="form-label required">Name : </label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="name1"
+                          placeholder name="name1">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="name2" class="form-label">Name :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="name2"
+                          placeholder name="name2">
+                      </div>
+                    </div>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-3">
+                        <label for="dateOfBirth1" class="form-label required">Date of
+                          Birth :</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="date" class="form-control "
+                          id="dateOfBirth1" placeholder name="dateOfBirth1" >
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-3">
+                        <label for="dateOfBirth2" class="form-label">Date of
+                          Birth :</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="date" class="form-control"
+                          id="dateOfBirth2" placeholder name="dateOfBirth2">
+                      </div>
+                    </div>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="row col-md-12">
+                      <div class="col-md-3">
+                        <label for="relationship" class="form-label">Relationship
+                          :</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control"
+                          id="relationship" placeholder name="relationship">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td colspan="2">
+                    <div class="row col-md-12">
+                      <div class="col-md-3">
+                        <label for="address" class="form-label">Address :</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="address"
+                          placeholder name="address">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="email1" class="form-label required">Email :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="email" class="form-control" id="email1"
+                          placeholder name="email1">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="email2" class="form-label">Email :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="email" class="form-control" id="email2"
+                          placeholder name="email2">
+                      </div>
+                    </div>
+                  </td>
+
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="phone1" class="form-label required">Phone :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="number" class="form-control" id="phone1"
+                          placeholder name="phone1">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="phone2" class="form-label">Phone :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="number" class="form-control" id="phone2"
+                          placeholder name="phone2">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="mobile1" class="form-label">Mobile :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="number" class="form-control" id="mobile1"
+                          placeholder name="mobile1">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="mobile2" class="form-label">Mobile :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="number" class="form-control" id="mobile2"
+                          placeholder name="mobile2">
+                      </div>
+                    </div>
+                  </td>
+
+                </tr>
+
+                <tr>
+                  <td colspan="2">
+                    <div class="row col-md-12">
+                      <div class="col-md-3">
+                        <label for="dependent1" class="form-label">Dependent :
+                          (if applicable)</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="dependent1"
+                          placeholder name="dependent1">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td colspan="2">
+                    <div class="row col-md-12">
+                      <div class="col-md-3">
+                        <label for="dependent2" class="form-label">Dependent :
+                          (if applicable)</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="dependent2"
+                          placeholder name="dependent2">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td colspan="2">
+                    <div class="row col-md-12">
+                      <div class="col-md-3">
+                        <label for="dependent3" class="form-label">Dependent :
+                          (if applicable)</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="dependent3"
+                          placeholder name="dependent3">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td colspan="2">
+                    <div class="row col-md-12">
+                      <div class="col-md-3">
+                        <label for="dependent4" class="form-label">Dependent :
+                          (if applicable)</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="dependent4"
+                          placeholder name="dependent4">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <!-- Occupation -->
+        <div class="tab">
+          <div class="row col-md-12 mt-4">
+            <table class="table table-bordered " id="occupation">
+              <thead>
+                <tr>
+                  <th class="text-danger" colspan="3">2. Occupation</th>
+
+                </tr>
+                <tr>
+                  <td class colspan="3">Nature of business owned and existence
+                    of a Buy/Sell Agreement may indicate a need for additional
+                    business focused planning</td>
+                </tr>
+                <tr>
+                  <th class="text-center">Client 1</th>
+                  <th class="text-center">Client 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="employer1" class="form-label">Employer :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="employer1"
+                          placeholder name="employer1">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="employer2" class="form-label">Employer :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="employer2"
+                          placeholder name="employer2">
+                      </div>
+                    </div>
+                  </td>
+
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="position1" class="form-label">Position :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="position1"
+                          placeholder name="position1">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="position2" class="form-label">Position :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="position2"
+                          placeholder name="position2">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="natureOfBusiness1" class="form-label">Nature
+                          of Business :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="text" class="form-control"
+                          id="natureOfBusiness1" placeholder
+                          name="natureOfBusiness1">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="natureOfBusiness2" class="form-label">Nature
+                          of Business :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <input type="text" class="form-control"
+                          id="natureOfBusiness2" placeholder
+                          name="natureOfBusiness2">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="row col-md-12">
+                   
+                      <div class="form-group ">
+                        <label class="radio-inline">
+                          <input type="radio" id="employee1" name="employmentType1" value="Employee" />
+                          Employee
+                        </label>
+
+                        <label class="radio-inline">
+                          <input type="radio" id="selfEmployed1" name="employmentType1"
+                            value="Self-Employed" /> Self - Employed
+                        </label>
+
+                        <label class="radio-inline">
+                          <input type="radio" id="partnership1" name="employmentType1"
+                            value="Partnership" /> Partnership
+                        </label>
+
+                        <label class="radio-inline">
+                          <input type="radio" id="corporation1" name="employmentType1"
+                            value="Corporation" /> Corporation
+                        </label>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="form-group">
+                        <label class="radio-inline">
+                          <input type="radio" id="employee2" name="employmentType2" value="Employee" />
+                          Employee
+                        </label>
+
+                        <label class="radio-inline">
+                          <input type="radio" id="selfEmployed2" name="employmentType2"
+                            value="Self-Employed" /> Self - Employed
+                        </label>
+
+                        <label class="radio-inline">
+                          <input type="radio" id="partnership2" name="employmentType2"
+                            value="Partnership" /> Partnership
+                        </label>
+
+                        <label class="radio-inline">
+                          <input type="radio" id="corporation2" name="employmentType2"
+                            value="Corporation" /> Corporation
+                        </label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="notes1" class="form-label">Notes :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <textarea rows="5"  cols="65"
+                          id="notes1" placeholder name="notes1"></textarea>
+
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="row col-md-12">
+                      <div class="col-md-2">
+                        <label for="notes2" class="form-label">Notes :</label>
+                      </div>
+                      <div class="col-md-10">
+                        <textarea rows="5" cols="65"
+                          id="notes2" placeholder name="notes2"></textarea>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- Income -->
+        <div class="tab">
+          <div class="row col-md-12 mt-4">
+            <table class="table table-bordered " id="income">
+              <thead>
+                <tr>
+                  <th class="text-danger" colspan="5">3. Income</th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th class="text-center" colspan="2">Client 1</th>
+                  <th class="text-center" colspan="2">Client 2</th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th class="text-center">Monthly</th>
+                  <th class="text-center">Annual</th>
+                  <th class="text-center">Monthly</th>
+                  <th class="text-center">Annual</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Gross Income</td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="grossIncomemonthly1" placeholder
+                      name="grossIncomemonthly1" value="0" onchange="calcualteIncomeTotalClient1Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="grossIncomeannual1" placeholder
+                      name="grossIncomeannual1"  value="0" onchange="calcualteIncomeTotalClient1Annual(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="grossIncomemonthly2" placeholder
+                      name="grossIncomemonthly2"  value="0" onchange="calcualteIncomeTotalClient2Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="grossIncomeannual2" placeholder
+                      name="grossIncomeannual2"  value="0" onchange="calcualteIncomeTotalClient2Annual(this);">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Self-Employed</td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="selfEmployedmonthly1" placeholder
+                      name="selfEmployedmonthly1" value="0" onchange="calcualteIncomeTotalClient1Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="selfEmployedannual1" placeholder
+                      name="selfEmployedannual1" value="0" onchange="calcualteIncomeTotalClient1Annual(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="selfEmployedmonthly2" placeholder
+                      name="selfEmployedmonthly2" value="0"  onchange="calcualteIncomeTotalClient2Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="selfEmployedannual2" placeholder
+                      name="selfEmployedannual2" value="0" onchange="calcualteIncomeTotalClient2Annual(this);">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Bonus</td>
+                  <td class>
+                    <input type="number" class="form-control" id="bonusmonthly1"
+                      placeholder name="bonusmonthly1" value="0" onchange="calcualteIncomeTotalClient1Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="bonusannual1"
+                      placeholder name="bonusannual1" value="0"  onchange="calcualteIncomeTotalClient1Annual(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="bonusmonthly2"
+                      placeholder name="bonusmonthly2" value="0"  onchange="calcualteIncomeTotalClient2Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="bonusannual2"
+                      placeholder name="bonusannual2" value="0"  onchange="calcualteIncomeTotalClient2Annual(this);">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Commissions</td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="commissionsmonthly1" placeholder
+                      name="commissionsmonthly1" value="0" onchange="calcualteIncomeTotalClient1Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="commissionsannual1" placeholder
+                      name="commissionsannual1" value="0"  onchange="calcualteIncomeTotalClient1Annual(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="commissionsmonthly2" placeholder
+                      name="commissionsmonthly2" value="0"  onchange="calcualteIncomeTotalClient2Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="commissionsannual2" placeholder
+                      name="commissionsannual2" value="0"  onchange="calcualteIncomeTotalClient2Annual(this);">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Interest Income</td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="intIncomemonthly1" placeholder
+                      name="intIncomemonthly1" value="0" onchange="calcualteIncomeTotalClient1Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="intIncomeannual1" placeholder name="intIncomeannual1" value="0" onchange="calcualteIncomeTotalClient1Annual(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="intIncomemonthly2" placeholder
+                      name="intIncomemonthly2" value="0"  onchange="calcualteIncomeTotalClient2Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="intIncomeannual2" placeholder name="intIncomeannual2" value="0"  onchange="calcualteIncomeTotalClient2Annual(this);">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Divident Income</td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="divIncomemonthly1" placeholder
+                      name="divIncomemonthly1" value="0" onchange="calcualteIncomeTotalClient1Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="divIncomeannual1" placeholder name="divIncomeannual1" value="0" onchange="calcualteIncomeTotalClient1Annual(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="divIncomemonthly2" placeholder
+                      name="divIncomemonthly2" value="0" onchange="calcualteIncomeTotalClient2Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control"
+                      id="divIncomeannual2" placeholder name="divIncomeannual2" value="0" onchange="calcualteIncomeTotalClient2Annual(this);">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Investment Property</td>
+                  <td class>
+                    <input type="number" class="form-control" id="invPromonthly1"
+                      placeholder name="invPromonthly1" value="0" onchange="calcualteIncomeTotalClient1Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="invProannual1"
+                      placeholder name="invProannual1" value="0" onchange="calcualteIncomeTotalClient1Annual(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="invPromonthly2"
+                      placeholder name="invPromonthly2" value="0"  onchange="calcualteIncomeTotalClient2Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="invProannual2"
+                      placeholder name="invProannual2" value="0"  onchange="calcualteIncomeTotalClient2Annual(this);">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Pension</td>
+                  <td class>
+                    <input type="number" class="form-control" id="pensionmonthly1"
+                      placeholder name="pensionmonthly1" value="0" onchange="calcualteIncomeTotalClient1Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="pensionannual1"
+                      placeholder name="pensionannual1" value="0" onchange="calcualteIncomeTotalClient1Annual(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="pensionmonthly2"
+                      placeholder name="pensionmonthly2" value="0" onchange="calcualteIncomeTotalClient2Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="pensionannual2"
+                      placeholder name="pensionannual2" value="0"  onchange="calcualteIncomeTotalClient2Annual(this);">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Annuity</td>
+                  <td class>
+                    <input type="number" class="form-control" id="annuitymonthly1"
+                      placeholder name="annuitymonthly1" value="0" onchange="calcualteIncomeTotalClient1Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="annuityannual1"
+                      placeholder name="annuityannual1" value="0" onchange="calcualteIncomeTotalClient1Annual(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="annuitymonthly2"
+                      placeholder name="annuitymonthly2" value="0" onchange="calcualteIncomeTotalClient2Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="annuityannual2"
+                      placeholder name="annuityannual2" value="0"  onchange="calcualteIncomeTotalClient2Annual(this);">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>CPP, OAS, GIS</td>
+                  <td class>
+                    <input type="number" class="form-control" id="cogmonthly1"
+                      placeholder name="cogmonthly1" value="0" onchange="calcualteIncomeTotalClient1Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="cogannual1"
+                      placeholder name="cogannual1" value="0" onchange="calcualteIncomeTotalClient1Annual(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="cogmonthly2"
+                      placeholder name="cogmonthly2" value="0" onchange="calcualteIncomeTotalClient2Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="cogannual2"
+                      placeholder name="cogannual2" value="0" onchange="calcualteIncomeTotalClient2Annual(this);">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Other</td>
+                  <td class>
+                    <input type="number" class="form-control" id="othermonthly1"
+                      placeholder name="othermonthly1" value="0" onchange="calcualteIncomeTotalClient1Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="otherannual1"
+                      placeholder name="otherannual1" value="0"  onchange="calcualteIncomeTotalClient1Annual(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="othermonthly2"
+                      placeholder name="othermonthly2" value="0" onchange="calcualteIncomeTotalClient2Monthly(this);">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="otherannual2"
+                      placeholder name="otherannual2" value="0"  onchange="calcualteIncomeTotalClient2Annual(this);">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>TOTAL</td>
+                  <td class>
+                    <input type="number" class="form-control" id="totalmonthly1"
+                      placeholder name="totalmonthly1" value="0">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="totalannual1"
+                      placeholder name="totalannual1" value="0">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="totalmonthly2"
+                      placeholder name="totalmonthly2" value="0">
+                  </td>
+                  <td class>
+                    <input type="number" class="form-control" id="totalannual2"
+                      placeholder name="totalannual2" value="0">
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Debt -->
+
+<div class="tab">
+  <div class="row col-md-12 mt-4">
+      <table class="table table-bordered " id="debt">
+          <thead>
+          <tr>
+              <th class="text-danger" colspan="3">4. Debt</th>
+          </tr>
+            <tr>
+              <th></th>
+              <th class="text-center">Client 1</th>
+              <th class="text-center">Client 2</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr>
+              <td>Residential Mortgage</td>
+              <td class="">
+                  <input type="number" class="form-control" id="resMor1" placeholder="" name="resMor1" value=0 onchange="calculateClient1TotalDebt(this);">
+              </td>
+              <td class="">
+                  <input type="number" class="form-control" id="resMor2" placeholder="" name="resMor2" value=0 onchange="calculateClient2TotalDebt(this);">
+              </td>
+            </tr>
+
+            <tr>
+              <td>Other Mortgage(s)</td>
+              <td class="">
+                  <input type="number" class="form-control" id="othMor1" placeholder="" name="othMor1" value=0 onchange="calculateClient1TotalDebt(this);">
+              </td>
+              <td class="">
+                  <input type="number" class="form-control" id="othMor2" placeholder="" name="othMor2" value=0 onchange="calculateClient2TotalDebt(this);">
+              </td>
+            </tr>
+
+            <tr>
+              <td>Line Of Credit</td>
+              <td class="">
+                  <input type="number" class="form-control" id="loc1" placeholder="" name="loc1" value=0 onchange="calculateClient1TotalDebt(this);">
+              </td>
+              <td class="">
+                  <input type="number" class="form-control" id="loc2" placeholder="" name="loc2" value=0 onchange="calculateClient2TotalDebt(this);">
+              </td>
+            </tr>
+
+            <tr>
+              <td>Credit Card</td>
+              <td class="">
+                  <input type="number" class="form-control" id="creditcard1" placeholder="" name="creditcard1" value=0 onchange="calculateClient1TotalDebt(this);">
+              </td>
+              <td class="">
+                  <input type="number" class="form-control" id="creditcard2" placeholder="" name="creditcard2" value=0 onchange="calculateClient2TotalDebt(this);">
+              </td>
+            </tr>
+
+            <tr>
+              <td>Student Loan</td>
+              <td class="">
+                  <input type="number" class="form-control" id="studentLoan1" placeholder="" name="studentLoan1" value=0 onchange="calculateClient1TotalDebt(this);">
+              </td>
+              <td class="">
+                  <input type="number" class="form-control" id="studentLoan2" placeholder="" name="studentLoan2" value=0 onchange="calculateClient2TotalDebt(this);">
+              </td>
+            </tr>
+
+            <tr>
+              <td>Other</td>
+              <td class="">
+                  <input type="number" class="form-control" id="other1_1" placeholder="" name="other1_1" value=0 onchange="calculateClient1TotalDebt(this);">
+              </td>
+              <td class="">
+                  <input type="number" class="form-control" id="other2_1" placeholder="" name="other2_1" value=0 onchange="calculateClient2TotalDebt(this);">
+              </td>
+            </tr>
+
+            <tr>
+              <td>Other</td>
+              <td class="">
+                  <input type="number" class="form-control" id="other1_2" placeholder="" name="other1_2" value=0 onchange="calculateClient1TotalDebt(this);">
+              </td>
+              <td class="">
+                  <input type="number" class="form-control" id="other2_2" placeholder="" name="other2_2" value=0 onchange="calculateClient2TotalDebt(this);">
+              </td>
+            </tr>
+
+            <tr>
+              <td>TOTAL</td>
+              <td class="">
+                  <input type="number" class="form-control" id="totaldebt1" placeholder="" name="totaldebt1" value=0 onchange="calculateClient1TotalDebt(this);">
+              </td>
+              <td class="">
+                  <input type="number" class="form-control" id="totaldebt2" placeholder="" name="totaldebt2" value=0 onchange="calculateClient2TotalDebt(this);">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+</div>
+<!-- Existing Insurance -->
+<div class="tab">
+  <div class="row col-md-12 mt-4">
+      <table class="table table-bordered " id="existingInsuarnce">
+          <thead>
+          <tr>
+              <th class="text-danger" colspan="3">5. Existing Insurance</th>
+          </tr>
+            <tr>
+              <th>Type</th>
+              <th>Policy#</th>
+              <th>Carrier</th>
+              <th>Owner</th>
+              <th>Insured</th>
+              <th>Beneficiary</th>
+              <th>Benefit Amount</th>
+              <th>Premium</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+              <td class="">
+                  <input type="text" class="form-control insuranceType" id="extIntype1" placeholder="" name="extIntype1">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control policyNumber" id="extInpol1" placeholder="" name="extInpol1">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control carrier" id="extInCarr1" placeholder="" name="extInCarr1">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control owner" id="extInOwn1" placeholder="" name="extInOwn1">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control insured" id="extInIns1" placeholder="" name="extInIns1">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control beneficiary" id="extInBenefic1" placeholder="" name="extInBenefic1">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control benefit" id="extInBenAm1" placeholder="" name="extInBenAm1">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control premium" id="extInPre1" placeholder="" name="extInPre1">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control notes" id="extInNot1" placeholder="" name="extInNot1">
+              </td>
+          </tr>
+            
+          <tr>
+              <td class="">
+                  <input type="text" class="form-control insuranceType" id="extIntype2" placeholder="" name="extIntype2">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control policyNumber" id="extInpol2" placeholder="" name="extInpol2">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control carrier" id="extInCarr2" placeholder="" name="extInCarr2">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control owner" id="extInOwn2" placeholder="" name="extInOwn2">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control insured" id="extInIns2" placeholder="" name="extInIns2">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control beneficiary" id="extInBenefic2" placeholder="" name="extInBenefic2">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control benefit" id="extInBenAm2" placeholder="" name="extInBenAm2">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control premium" id="extInPre2" placeholder="" name="extInPre2">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control notes" id="extInNot2" placeholder="" name="extInNot2">
+              </td>
+          </tr>
+
+          <tr>
+              <td class="">
+                  <input type="text" class="form-control insuranceType" id="extIntype3" placeholder="" name="extIntype3">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control policyNumber" id="extInpol3" placeholder="" name="extInpol3">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control carrier" id="extInCarr3" placeholder="" name="extInCarr3">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control owner" id="extInOwn3" placeholder="" name="extInOwn3">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control insured" id="extInIns3" placeholder="" name="extInIns3">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control beneficiary" id="extInBenefic3" placeholder="" name="extInBenefic3">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control benefit" id="extInBenAm3" placeholder="" name="extInBenAm3">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control premium" id="extInPre3" placeholder="" name="extInPre3">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control notes" id="extInNot3" placeholder="" name="extInNot3">
+              </td>
+          </tr>
+
+          <tr>
+              <td class="">
+                  <input type="text" class="form-control insuranceType" id="extIntype4" placeholder="" name="extIntype4">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control policyNumber" id="extInpol4" placeholder="" name="extInpol4">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control carrier" id="extInCarr4" placeholder="" name="extInCarr4">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control owner" id="extInOwn4" placeholder="" name="extInOwn4">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control insured" id="extInIns4" placeholder="" name="extInIns4">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control beneficiary" id="extInBenefic4" placeholder="" name="extInBenefic4">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control benefit" id="extInBenAm4" placeholder="" name="extInBenAm4">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control premium" id="extInPre4" placeholder="" name="extInPre4">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control notes" id="extInNot4" placeholder="" name="extInNot4">
+              </td>
+          </tr>
+
+          <tr>
+              <td class="">
+                  <input type="text" class="form-control insuranceType" id="extIntype5" placeholder="" name="extIntype5">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control policyNumber" id="extInpol5" placeholder="" name="extInpol5">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control carrier" id="extInCarr5" placeholder="" name="extInCarr5">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control owner" id="extInOwn5" placeholder="" name="extInOwn5">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control insured" id="extInIns5" placeholder="" name="extInIns5">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control beneficiary" id="extInBenefic5" placeholder="" name="extInBenefic5">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control benefit" id="extInBenAm5" placeholder="" name="extInBenAm5">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control premium" id="extInPre5" placeholder="" name="extInPre5">
+              </td>
+              <td class="">
+                  <input type="text" class="form-control notes" id="extInNot5" placeholder="" name="extInNot5">
+              </td>
+          </tr>
+          </tbody>
+        </table>
+  </div>
+
+  <!-- <div class="row"> -->
+    <table class="table">
+      <tr><td><p>Are you planning on replacing or cancelling any of the above policies?</p>
+        <textarea cols="8" rows="2" id="planningNotes" style="width: 98%;"></textarea>
+      </td></tr>
+    </table>
+      
+      
+  <!-- </div> -->
+  
+</div>
+<!--Existing Insurance Ends Here-->
+<!--Health section starts here-->
+<div class="tab">
+  <div class="row col-md-12 mt-4">
+      <table class="table table-bordered " id="health">
+          <thead>
+          <tr>
+              <th class="text-danger" colspan="3">6. Health</th>
+          </tr>
+          <tr>
+              <td colspan="3">
+I ask about your health in advance as I represent multiple insurance companies and would like to ensure that we submit an
+application with the company that best suits your needs and personal situation. Rates are based on your age, smoking status,
+lifestyle and overall health, and each insurance company has different underwriting requirements. Providing me with the most
+accurate information about your health will also help me provide you with more accurate quotes, instead of assuming standard
+rates.
+              </td>
+          </tr>
+            <tr>
+              <th></th>
+              <th class="text-center">Client 1</th>
+              <th class="text-center">Client 2</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+              <tr>
+                  <td>
+              <h5 class="text-center">Smoking Status</h5>
+              <p><i>Have you smoked anything in the past 12 months? Have you used tobacco or nicotine in any form over the past
+12 months? If so, in how often? This includes:</i></p>
+                  <ul>
+                      <li><i>Cigarettes, cigars and cigarillos</i></li>
+                      <li><i>Chewing tobacco</i></li>
+                      <li><i>Vaping</i></li>
+                      <li><i>Marijuana</i></li>
+                      <li><i>moking cessation products like nicotine gum and patches</i></li>
+                    </ul>  
+              </td>
+              <td class="">
+                  <textarea rows="10"  id="smokingStatus1"></textarea>
+              </td>
+              <td class="">
+                  <textarea rows="10"  id="smokingStatus2"></textarea>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+
+
+          <h5 class="text-center">Health</h5>
+              <ul>
+                  <li><i>Are you in good health? Any present health issues?</i></li>
+                  <li><i>Have you ever been diagnosed with a major illness?</i></li>
+                  <li><i>Are you currently taking any medications? Have
+                      you ever taken any long-term medications?</i></li>
+                  <li><i>Have you ever had any major surgeries?</i></li>
+                  <li><i>Have you ever seen a specialist for a medical
+                      concern?</i></li>
+                  <li><i>Have you ever been told that you have abnormal
+                      bloodwork results?</i></li>
+                  <li><i>Have you ever had an MRI, CT or PET scan,
+                      etc?</i></li>
+                  <li><i>Are you awaiting results of any tests?</i></li>
+                  <li><i>Any drinking, driving, or drug issues presently or
+                      in the past?</i></li>
+                </ul>  
+          </td>
+          <td class="">
+              <textarea rows="10"  id="health1"></textarea>
+          </td>
+          <td class="">
+              <textarea rows="10"  id="health2"></textarea>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+
+
+      <h5 class="text-center">Height & Weight</h5>
+          <ul>
+              <li><i>Please provide your approximate height and
+                  weight.</i></li>
+              <li><i>Have you had any major weight gain or loss over
+                  the past few years?</i></li>
+            </ul>  
+      </td>
+      <td class="">
+          <textarea rows="5"  id="heightWeight1"></textarea>
+      </td>
+      <td class="">
+          <textarea rows="5"  id="heightWeight2"></textarea>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+
+  <h5 class="text-center">Family History</h5>
+  <p class="text-center">(Required for Critical Illness)</p>
+  </td>
+  <td class="">
+      <textarea rows="5"  id="heightWeight1"></textarea>
+  </td>
+  <td class="">
+      <textarea rows="5"  id="heightWeight2"></textarea>
+  </td>
+</tr>
+
+           
+
+            
+          </tbody>
+        </table>
+  </div>
+  
+</div>
+<!-- Health section ends here-->
+<!-- LIFE INSURANCE - NEEDS ANALYSIS Starts Here -->
+<div class="tab">
+  <div class="row col-md-12 mt-4">
+      <table class="table table-bordered " >
+          <thead>
+          <tr>
+              <th class="text-danger" colspan="3">7.1 Life Insurance - Needs Analysis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><ul>
+            <li>What is the purpose of this insurance? (short term vs. long term goals)</li>
+            <li>Has anyone ever explained the difference between term insurance and permanent life insurance?</li>
+            <li> Who do you want to protect? How long would they need your financial support for?</li>
+            <li> Is anyone disabled or have other special needs?</li>
+            <li> How much overall debt do you have (see DEBT section above)?</li>
+            <li> Do you have savings that could easily be used and accessed at the time of death?</li>
+            <li> Would you like to also include funding for your children’s post-secondary college education or other long-term goals?</li>
+            <li> Will your spouse or partner need help with funding their retirement or other long-term goals?</li>
+            <li> Would you like to include the cost of funeral costs and/or final expenses?</li>
+            <li> Do you have a monthly or annual budget?</li>
+          </ul>
+        </td>
+            </tr>
+         
+          <tr> <td>      
+          <textarea cols="180" rows="5" id="lifeAnalysis"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  
+</div>
+<!-- LIFE INSURANCE - NEEDS ANALYSIS Ends Here -->
+<!-- DISABILITY INSURANCE - NEEDS ANALYSIS Starts Here -->
+<div class="tab">
+  <div class="row col-md-12 mt-4">
+      <table class="table table-bordered ">
+          <thead>
+          <tr>
+              <th class="text-danger" colspan="3">7.2. Disability Insurance - Needs Analysis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><ul><li>Ensure section #3 (Income) is filled out, as income details are required to quote.</li>
+ <li>Are you interested in coverage for injury only, or injury and illness?</li>
+ <li>Occupation - % of time spent on your various job duties?</li>
+<li> Do you have existing STD or LTD coverage through your employee group benefits?</li>
+ <li>Are you covered by WSIB?</li>
+ <li>If you were unable to work and required income replacement, when would you want the monthly benefit to begin?<br>
+  The elimination period is the length of time you are required to wait before you begin receiving the monthly benefit</li>
+ <li>If you were unable to work and required income replacement, for how long would you require or like your income replaced for?<br>
+      2 years, 5 years, or until age 65?</li>
+ <li>Do you have a monthly or annual budget?</li>
+</ul>
+        </td>
+            </tr>
+         
+          <tr> <td>      
+          <textarea cols="180" rows="5" id="disabilityAnalysis"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  
+</div>
+<!-- DISABILITY INSURANCE - NEEDS ANALYSIS Ends Here -->
+<!-- Critical Illness starts Here -->
+<div class="tab">
+  <div class="row col-md-12 mt-4">
+      <table class="table table-bordered " id="criticalIllness">
+          <thead>
+              <tr>
+                  <th class="text-danger" colspan="3">8. CRITICAL ILLNESS INSURANCE - NEEDS ANALYSIS</th>
+              </tr>
+              <tr>
+                  <td class="" colspan="3">Recovery time may vary depending on the illness and/or the severity of the illness. As a general rule of thumb, it is a good idea to
+                      calculate approximately six months of expenses</td>
+              </tr>
+              <tr>
+                  <th></th>
+                  <th class="text-center">Client 1</th>
+                  <th class="text-center">Client 2</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+              <td>
+                  <h5>Income supplement</h5>
+              </td>
+              <td class="">
+                  <input id="incomeSupp1" name="incomeSupp1" style="width: 100%;">
+              </td>
+              <td class="">
+                  <input id="incomeSupp2" name="incomeSupp2" style="width: 100%;">
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                  <h5>Spousal income supplement</h5>
+                  <p>- &nbsp; Topping up or replacing spousal income, is spouse becomes
+                      caregiver</p>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="spousualincomeSupp1" name="spousualincomeSupp1"></textarea>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="spousualincomeSupp2" name="spousualincomeSupp2"></textarea>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                  <h5>Everyday living expenses</h5>
+                  <p>- &nbsp; Food, rent, mortgage, utilities, credit card or car payments</p>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="everydayLivingExpenses1" name="everydayLivingExpenses1"></textarea>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="everydayLivingExpenses2" name="everydayLivingExpenses2"></textarea>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                  <h5>Other medical-related costs</h5>
+                  <p>- &nbsp; Home care, rehabilitation, additional medical related expenses</p>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="othmedrelcost1" name="othmedrelcost1"></textarea>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="othmedrelcost2" name="othmedrelcost2"></textarea>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                  <h5>Household support</h5>
+                  <p>- &nbsp; Daycare, babysitting, home maintenance service providers</p>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="houseHoldSupp1" name="houseHoldSupp1"></textarea>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="houseHoldSupp2" name="houseHoldSupp2"></textarea>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                  <h5>Savings and investments plans</h5>
+                  <p>- &nbsp; Savings and investments plans</p>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="savingsandInv1" name="savingsandInv1"></textarea>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="savingsandInv2" name="savingsandInv2"></textarea>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                  <h5>Other lifestyle expenses</h5>
+                  <p>- &nbsp; Children’s activities, memberships, vacations</p>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="otherLifeExp1" name="otherLifeExp1"></textarea>
+              </td>
+              <td class="">
+                  <textarea rows="5" id="otherLifeExp2" name="otherLifeExp2"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+              <!-- <div class="row"> -->
+                  <h5>Additional Notes/Comments</h5>
+                  <textarea rows="5" id="additionalNotes" name="additionalNotes"></textarea>
+              <!-- </div> -->
+              </td>
+            </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+<!-- Critical Illness Ends Here -->
+
+<!-- Previous/Next Button Starts Here-->
+        <div style="overflow:auto;">
+          <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          </div>
+        </div>
+<!-- Previous/Next Button Ends Here-->
+<!-- Spinner while submitting the form-->
+<!-- <div class="text-center">
+<div class="spinner-grow text-success " role="status" id="loadingDiv" style="display: none;">
+  <span class="visually-hidden">Loading...</span>
+</div>
+</div> -->
+<div id="cover-spin"></div>
+      </form>
+    </div>
+  </body>
+</html>

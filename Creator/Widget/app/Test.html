@@ -1,0 +1,30 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+
+      <script>
+	      $(document).ready(function () {
+	          $("div[data-includeHTML]").each(function () {
+	              $(this).load($(this).attr("data-includeHTML"));
+	          });
+	      });
+</script>
+ </head>
+<body>
+<header>
+</header>
+<main>
+
+    <div>
+        This is the main content, from the index file
+    </div>
+    <div data-includeHTML="IncomeSection.html"></div>
+    <div data-includeHTML="health Sector.html"></div>
+    <div data-includeHTML="Existing Insurance Section.html"></div>
+</main>
+<footer>
+</footer>
+
+</body>
+</html>

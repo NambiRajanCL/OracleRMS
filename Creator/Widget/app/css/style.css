@@ -1,0 +1,123 @@
+.oracleHeader {
+    width: 60%;
+}
+
+input,
+input[type='text'],
+input[type='Email'],
+input[type='date'],
+textarea,
+input[type='number'] {
+    background-color: #dee5ff;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 25px;
+    width: 25px;
+    margin: 0 2px;
+    background-color: #14a025;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #14a025;
+    opacity: 1;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+#prevBtn {
+    background-color: #bbbbbb;
+}
+
+button {
+    background-color: #bd171e;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/*CSS for Spinner*/
+/* Center the loader */
+#cover-spin {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    display: none;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#cover-spin::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 48%;
+    top: 40%;
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+    border-top-color: transparent;
+    border-width: 4px;
+    border-radius: 50%;
+    -webkit-animation: spin .8s linear infinite;
+    animation: spin .8s linear infinite;
+}
+
+/*For Mandatory Field*/
+.required:after {
+    content: " *";
+    color: red;
+}
+
+/*Textarea to fit in*/
+textarea {
+    width: 100%;
+}
