@@ -18,6 +18,9 @@ function collectFormData() {
     var factAndFindData = {};
     console.log("collectformdata");
 
+    // Lead Details
+    factAndFindData['Lead_Source'] = "Self";
+
     //General Information Tab
     if ($("#date").val() != "") {
         factAndFindData['Date_field'] = moment($("#date").val()).format('DD-MMM-YYYY');
@@ -26,17 +29,31 @@ function collectFormData() {
     }
 
     factAndFindData['Advisor_Name'] = $("#advisorName").val();
-    factAndFindData['Referred_By'] = $("#referredBy").val();
-    factAndFindData['Name'] = $('#name1').val();
+    factAndFindData['Referred_By'] = $("#referredBy option:selected").text();
+    factAndFindData['First_Name'] = $("#firstName1").val();
+    factAndFindData['Last_Name'] = $("#lastName1").val();
+    factAndFindData['Name'] = $("#firstName1").val() + " " + $("#lastName1").val();
     factAndFindData['Date_of_Birth'] = moment($('#dateOfBirth1').val()).format('DD-MMM-YYYY');
     factAndFindData['Relationship'] = $('#relationship').val();
-    factAndFindData['Address'] = $('#address').val();
+    // factAndFindData['Address'] = $('#address').val();
+
+    //Address Information 
+    factAndFindData['Street'] = $("#street").val();
+    factAndFindData['Country'] = $("#country option:selected").val();
+    factAndFindData['Unit_Suite'] = $("#unit").val();
+    factAndFindData['State_Province'] = $("#state option:selected").val();
+    factAndFindData['City'] = $("#city").val();
+    factAndFindData['Postal_Code'] = $("#postalCode").val();
+
     factAndFindData['Client_1_Email'] = $('#email1').val();
     factAndFindData['Client_1_Home_Phone'] = $('#phone1').val();
     factAndFindData['Client_1_Mobile'] = $('#mobile1').val();
     factAndFindData['Dependent_1'] = $('#dependent1').val();
     factAndFindData['Dependent_2'] = $('#dependent2').val();
-    factAndFindData['Client_2_Name'] = $('#name1').val();
+    factAndFindData['First_Name_Client_2'] = $("#firstName2").val();
+    factAndFindData['Last_Name_Client_2'] = $("#lastName2").val();
+    factAndFindData['Client_2_Name'] = $("#firstName2").val() + " " + $("#lastName2").val();
+
     if ($('#dateOfBirth2').val() != "") {
         factAndFindData['Client_2_Date_of_Birth'] = moment($('#dateOfBirth2').val()).format('DD-MMM-YYYY');
     }
@@ -58,7 +75,7 @@ function collectFormData() {
     factAndFindData['Notes'] = $("#notes1").val();
     factAndFindData['Employer1'] = $("#employer2").val();
     factAndFindData['Position1'] = $("#position2").val();
-    factAndFindData['Nature_of_Business'] = $("#natureOfBusiness2").val();
+    factAndFindData['Nature_Of_Business'] = $("#natureOfBusiness2").val();
     factAndFindData['Employment_Type2'] = $("input[name='employmentType2']:checked").val();
     factAndFindData['Notes1'] = $("#notes2").val();
 
@@ -118,7 +135,7 @@ function collectFormData() {
     factAndFindData['Line_of_Credit'] = Number($("#loc1").val());
     factAndFindData['Credit_Card'] = Number($("#creditcard1").val());
     factAndFindData['Student_Loan'] = Number($("#studentLoan1").val());
-    factAndFindData['Other2'] = Number($("#other1_1").val());
+    factAndFindData['Other1'] = Number($("#other1_1").val());
     factAndFindData['Other_2'] = Number($("#other1_2").val());
     factAndFindData['Total2'] = Number($("#totaldebt1").val());
     factAndFindData['Residential_Mortgage1'] = Number($("#resMor2").val());
@@ -286,7 +303,7 @@ function factAndFindAdd(factAndFindData) {
 
         var config = {
             appName: "oracle-life-insurance",
-            formName: "Fact_Find",
+            formName: "Leads",
             data: factAndFindDataDetails
         }
         console.log(config);
@@ -301,13 +318,13 @@ function factAndFindAdd(factAndFindData) {
                 // $("#prevBtn").hide();
                 // $("#nextBtn").attr("disabled",true);
                 // $("#prevBtn").attr("disabled",true);
-                location.reload(true);
                 //alert("Data Added Successfully");
                 swal({
                     title: "Success",
                     text: "Data has been Added Successfully",
                     type: "success"
                 });
+                location.reload(true);
                 console.log("Record added successfully");
             } else {
                 console.log("Error Calling Creator API- Add Record - On Form Submit from Widgets:" + response.code);
@@ -319,3 +336,142 @@ function factAndFindAdd(factAndFindData) {
         });
     });
 }
+function populateLoggedInUser() {
+    var currentDate = new Date();
+    var curr_date = currentDate.getDate();
+    var curr_month = currentDate.getMonth() + 1; //Months are zero based
+    var curr_year = currentDate.getFullYear();
+
+    var dateValue = curr_year + "-" + curr_month + "-" + curr_date;
+    console.log(dateValue);
+    console.log(dateValue.toString());
+    console.log('"'+dateValue + '"');
+    var currentDate = moment(new Date()).format('YYYY-MM-DD');
+    console.log(currentDate);
+    var currentDateValue = '"'+currentDate +'"';
+    console.log(currentDateValue);
+    // $("#date").val("2023-06-07");
+    console.log("inside populate logged in user");
+    ZOHO.CREATOR.init().then(function (data) {
+        var loggedinUserData = { "Dummy_Field": "Test Record" };
+        loggedInDataDetails = {
+            "data": loggedinUserData
+        }
+
+        var config = {
+            appName: "oracle-life-insurance",
+            formName: "LoggedInUserForm",
+            data: loggedInDataDetails
+        }
+        console.log(config);
+
+        ZOHO.CREATOR.API.addRecord(config).then(function (response) {
+            console.log(response);
+            if (response.code == 3000) {
+                console.log("Record added successfully");
+                populateAdvisorName(response.data.ID);
+            } else {
+                console.log("Error Calling Creator API- Add Record - On Form Submit from Widgets:" + response.code);
+            }
+        }).catch(err => {
+            console.log("error message:" + JSON.stringify(err));
+        });
+    });
+}
+function populateAdvisorName(recordID) {
+
+    // var recordID = dataList.ID;
+    console.log(recordID);
+
+    ZOHO.CREATOR.init().then(function (data) {
+        addressDetailsConfig = {
+            appName: "oracle-life-insurance",
+            reportName: "LoggedInUserForm_Report",
+            id: recordID
+        }
+        console.log(addressDetailsConfig);
+        ZOHO.CREATOR.API.getRecordById(addressDetailsConfig).then(function (response) {
+            console.log(JSON.stringify(response.data));
+            if (response.code == 3000) {
+                console.log("successs");
+                $("#advisorName").val(response.data.Logged_In_User);
+            } else {
+                console.log(response.code);
+                console.log(response.err);
+            }
+
+        });
+    });
+}
+/**
+ * This fucntion is fetch all referred By Details
+ */
+function getReferredByDetails() {
+    var creatorSdk = ZOHO.CREATOR.init();
+
+    creatorSdk.then(function (data) {
+        getReferredByData("1");
+    });
+    async function getReferredByData(pageNum) {
+        config = {
+            appName: "oracle-life-insurance",
+            reportName: "All_Referrals",
+            page: pageNum,
+            pageSize: 200
+        }
+        var getRecords = ZOHO.CREATOR.API.getAllRecords(config);
+        getRecords.then(function (response) {
+            $.each(response.data, function (idx, dataList) {
+                $('#referredBy').append('<option value="' + dataList.ID + '">' + dataList.Referred_By + '</option>');
+            });
+            var recordsLength = Object.keys(response.data).length;
+            if (recordsLength == 200) {
+                getReferredByData(parseInt(pageNum) + 1);
+            }
+            else {
+                console.log("Less than 200");
+            }
+        }).catch(err => console.log("No matching records"));
+    }
+}
+/**
+ * This function is to populate country and on change of country populate state
+ */
+function populateStateOnCountrySelection() {
+    // $("#date").val("2023-07-06");
+    $('#state').empty();
+    console.log("on change of country");
+    var creatorSdk = ZOHO.CREATOR.init();
+    creatorSdk.then(function (data) {
+        getStateDetails();
+    });
+    var selectedCountryName = $("#country option:selected").val();
+    async function getStateDetails(pageNum) {
+        getStateDetailsConfig = {
+            appName: "oracle-life-insurance",
+            reportName: "State_Province_Report",
+            criteria: "(Country == \"" + selectedCountryName + "\" )",
+        };
+        console.log(getStateDetailsConfig);
+        var firstOption = "<option value=''>None</option>";
+        $('#state').append(firstOption);
+        var getRecords = ZOHO.CREATOR.API.getAllRecords(getStateDetailsConfig);
+        getRecords.then(function (response) {
+            // console.log("item Details:"+JSON.stringify(response.data));
+            $.each(response.data, function (index, dataList) {
+
+                selectValue = '<option value="' + dataList.State + '">' + dataList.State + '</option>';
+                
+                $('#state').append(selectValue);
+            });
+            var recordsLength = Object.keys(response.data).length;
+            console.log(recordsLength);
+            // if (recordsLength == 200) {
+            //     getStateDetails(parseInt(pageNum) + 1);
+            // }
+            // else {
+            //   console.log("No more Items to Fetch");
+            // }
+        }).catch(err => console.log("No matching records"));
+    }
+} 

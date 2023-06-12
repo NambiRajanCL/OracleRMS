@@ -57,6 +57,7 @@ function validateDateOfBirth() {
             text: "Date of Birth cannot be future date",
             type: "error"
         });
+        $("#dateOfBirth1").val("");
         return false;
     }
     if ($("#dateOfBirth2").val() != "") {
@@ -69,6 +70,7 @@ function validateDateOfBirth() {
                 text: "Date of Birth cannot be future date",
                 type: "error"
             });
+            $("#dateOfBirth2").val("");
             return false;
         }
     }
@@ -91,14 +93,16 @@ function validateForm() {
     } else {
         if (!validateDateOfBirth()) {
             valid = false;
-        } else if (!validateClient2Form()) {
+        } 
+        else if (!validateClient2Form()) {
             valid = false;
-        } else {
+        } 
+        else {
             valid = true;
         }
     }
     if (valid) {
-        document.getElementsByClassName("step")[currentTab].className += " finish";
+        document.getElementsByClassName("step1")[currentTab].className += " finish";
     }
     return valid;
 }
@@ -106,27 +110,75 @@ function validateForm() {
  * This function is to validate fields in client 2 section
  */
 function validateClient2Form() {
+
     var valid = true;
-    if ($("#name2").val() != "" && $("#dateOfBirth2").val() == "") {
-        $("#dateOfBirth2").addClass("invalid");
-        valid = false;
-    } else if ($("#dateOfBirth2").val() != "" && (($("#name2").val() == ""))) {
-        $("#name2").addClass("invalid");
-        valid = false;
-    } else if ($("#email2").val() != "" && (($("#name2").val() == "" || ($("#dateOfBirth2").val() == "")))) {
-        $("#name2").addClass("invalid");
-        $("#dateOfBirth2").addClass("invalid");
-        valid = false;
-    } else if ($("#phone2").val() != "" && (($("#name2").val() == "" || ($("#dateOfBirth2").val() == "")) || $("#email2").val() == "")) {
-        $("#name2").addClass("invalid");
-        $("#dateOfBirth2").addClass("invalid");
-        $("#email2").addClass("invalid");
-        valid = false;
-    } else {
-        console.log("inside else");
-        $("#name2").removeClass("invalid");
+
+     if($("#firstName2").val() == "" && $("#lastName2").val() == "" && $("#dateOfBirth2").val() == "" && $("#email2").val() == "" && $("#phone2").val() == "")
+    {
+        $("#firstName2").removeClass("invalid");
+        $("#lastName2").removeClass("invalid");
         $("#dateOfBirth2").removeClass("invalid");
         $("#email2").removeClass("invalid");
+        $("#phone2").removeClass("invalid");
+        valid = true;
+
+    }
+   
+    else if ($("#firstName2").val() == "" || $("#lastName2").val() == "" || $("#dateOfBirth2").val() == "" || $("#email2").val() == "" || $("#phone2").val() == "" ){
+
+        // firstName
+        if($("#firstName2").val() == ""){
+            $("#firstName2").addClass("invalid");
+        }
+        else {
+            $("#firstName2").removeClass("invalid");
+        }
+
+        // lastName
+        if($("#lastName2").val() == ""){
+            $("#lastName2").addClass("invalid");
+        }
+        else {
+            $("#lastName2").removeClass("invalid");
+        }
+
+        // dateofBirth
+        if($("#dateOfBirth2").val() == ""){
+
+            $("#dateOfBirth2").addClass("invalid");
+        }
+        else{
+            $("#dateOfBirth2").removeClass("invalid");
+        }
+
+        // email
+        if($("#email2").val() == ""){
+
+            $("#email2").addClass("invalid");
+        }
+        else{
+            $("#email2").removeClass("invalid");
+        }
+        
+        // phone
+        if($("#phone2").val() == ""){
+
+            $("#phone2").addClass("invalid");
+        }
+        else{
+            $("#phone2").removeClass("invalid");
+        }
+        
+        valid = false;
+    }
+    
+    else 
+    {
+        $("#firstName2").removeClass("invalid");
+        $("#lastName2").removeClass("invalid");
+        $("#dateOfBirth2").removeClass("invalid");
+        $("#email2").removeClass("invalid");
+        $("#phone2").removeClass("invalid");
         valid = true;
     }
     return valid;
@@ -136,10 +188,10 @@ function validateClient2Form() {
  * @param {*} n 
  */
 function fixStepIndicator(n) {
-    var i, x = document.getElementsByClassName("step");
+    var i, x = document.getElementsByClassName("step1");
     for (i = 0; i < x.length; i++) {
         x[i].className = x[i].className.replace(" active", "");
-        x[i].innerHTML = i + 1;
+        // x[i].innerHTML = i + 1;
     }
     x[n].className += " active";
 }
@@ -151,7 +203,7 @@ function checkAndDisableclient2() {
     var x = document.getElementsByClassName("tab");
     y = x[currentTab].getElementsByTagName("input");
     // console.log(y[4]);
-    if ($("#name2").val() == "") {
+    if ($("#firstName2").val() == "" && $("#lastName2").val() == "") {
         $("#occupation tbody tr").each(function () {
             var currentRow = $(this);
             currentRow.find("td:eq(1) input").attr("disabled", true);

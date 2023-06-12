@@ -10,7 +10,9 @@ textarea,
 input[type='number'] {
     background-color: #dee5ff;
 }
-
+select{
+    background-color: #dee5ff;
+}
 /* Make circles that indicate the steps of the form: */
 .step {
     height: 25px;
@@ -121,3 +123,80 @@ input.invalid {
 textarea {
     width: 100%;
 }
+/*background color to select */
+/* select option {
+    margin: 40px;
+    background: #dee5ff;
+    color: #e1dfdf;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  } */
+
+  #progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+
+#progressbar li {
+	list-style-type: none;
+	color: rgb(115, 112, 112);
+	text-transform: uppercase;
+	font-size: 10px;
+	width: 10%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: rgb(113, 106, 106);
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: rgb(111, 108, 108);
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #27AE60;
+	color: white;
+}
+
+#progressbar li.finish:before,  #progressbar li.finish:after{
+	background: #27AE60;
+	color: white;
+}
+
+.step1 {
+    text-align: center;
+    /* color: #000; */
+}
+
+/* .zc-pb-tile-card
+{
+    overflow: hidden;
+}
+
+.zc-pb-page-content-wrapper
+{
+    overflow: hidden;
+} */

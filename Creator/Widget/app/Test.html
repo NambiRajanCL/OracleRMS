@@ -1,30 +1,43 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-
-      <script>
-	      $(document).ready(function () {
-	          $("div[data-includeHTML]").each(function () {
-	              $(this).load($(this).attr("data-includeHTML"));
-	          });
-	      });
-</script>
- </head>
-<body>
-<header>
-</header>
-<main>
-
-    <div>
-        This is the main content, from the index file
+    <title>Insert Page Breaks Before and After HTML Elements Using CSS</title>
+</head>
+<body style="width: 1010px; font-family: 'Times New Roman'; font-size: 20px; margin: 5px">
+    <div style="width: 100%; height: 500px; background-color: aliceblue; border: 2px solid gray; text-align: center">
+        <div style="width: 100%; height: 200px"></div>
+        A block <b>without any page break</b> style<br />
+        <br />
+        [ Follows a block with <i>page-break-before : always</i> and <i>page-break-after : always</i> styles ]
     </div>
-    <div data-includeHTML="IncomeSection.html"></div>
-    <div data-includeHTML="health Sector.html"></div>
-    <div data-includeHTML="Existing Insurance Section.html"></div>
-</main>
-<footer>
-</footer>
-
+    <div style="page-break-before: always; page-break-after: always; width: 100%; height: 500px; background-color: gainsboro; border: 2px solid gray; text-align: center">
+        <div style="width: 100%; height: 200px"></div>
+        A block with <b>page-break-before : always</b> and <b>page-break-after : always</b> styles<br />
+        <br />
+        <b>This block will be always rendered alone in a PDF page</b><br />
+        <br />
+        [ Follows a block with <i>page-break-after : always</i> style ]
+    </div>
+    <div style="page-break-after: always; width: 100%; height: 500px; background-color: beige; border: 2px solid gray; text-align: center">
+        <div style="width: 100%; height: 200px"></div>
+        A block with <b>page-break-after : always</b> style<br />
+        <br />
+        <b>Nothing will be rendered after this block in PDF page</b>
+        <br />
+        <br />
+        [ Follows a block <i>without any page break</i> style ]
+    </div>
+    <div style="width: 100%; height: 500px; background-color: aliceblue; border: 2px solid gray; text-align: center">
+        <div style="width: 100%; height: 200px"></div>
+        A block <b>without any page break</b> style<br />
+        <br />
+        [ Follows a block with <i>page-break-before : always</i> style ]
+    </div>
+    <div style="page-break-before: always; width: 100%; height: 500px; background-color: lightgray; border: 2px solid gray; text-align: center">
+        <div style="width: 100%; height: 200px"></div>
+        A block with <b>page-break-before : always</b> style<br />
+        <br />
+        <b>This block will always be rendered at the top of a PDF page</b>
+    </div>
 </body>
 </html>

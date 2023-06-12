@@ -1,6 +1,26 @@
 $(document).ready(function () {
     var currentTab = 0; // Current tab is set to be the first tab (0)
     showTab(currentTab);
+//     $("#date").val("2023-07-06");
+//     var currentDate = moment(new Date()).format('DD-MM-YYYY');
+//     console.log(currentDate);
+//     var currentDateValue = '"'+currentDate +'"';
+//     console.log(currentDateValue);
+//     //var dateValue = new Date().toJSON().slice(0,10);
+//     var d = new Date();
+// var curr_date = d.getDate();
+// var curr_month = d.getMonth() + 1; //Months are zero based
+// var curr_year = d.getFullYear();
+// console.log(curr_date + "-" + curr_month + "-" + curr_year);
+// var dateValue = curr_date + "-" + curr_month + "-" + curr_year;
+//     document.getElementById("date").value = dateValue;
+//     $("#date").val(dateValue);
+
+    document.getElementById("date").value = new Date().toISOString().substring(0, 10);
+    populateStateOnCountrySelection();
+
+    populateLoggedInUser();
+    getReferredByDetails();
     $("#name").on({
         keyup:function(){
             formatUserName($(this));
@@ -56,4 +76,49 @@ function formatCurrency(input, blur) {
   input[0].setSelectionRange(caret_pos, caret_pos);
 }
 
+function validateEmailC1()
+{
+  // var emailc1 = $("#email1").val();
+  if($("#email1").val() != "")
+  {
+    var emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if($("#email1").val().match(emailFormat))
+    {
+    return true;
+    }
+    else
+    {
+      swal({
+        title: "Invalid Email",
+        text: "You have entered an invalid email address!",
+        type: "error"
+    });
+      $("#email1").val("");
+      return false;
+    }
+  }
+}
+
+function validateEmailC2()
+{
+  // var emailc1 = $("#email1").val();
+  if($("#email2").val() != "")
+  {
+    var emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if($("#email2").val().match(emailFormat))
+    {
+    return true;
+    }
+    else
+    {
+      swal({
+        title: "Invalid Email",
+        text: "You have entered an invalid email address!",
+        type: "error"
+    });
+      $("#email2").val("");
+      return false;
+    }
+  }
+}
 
