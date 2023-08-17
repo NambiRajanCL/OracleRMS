@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- JS API CDN-->
+    <!-- https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js -->
     <script type="text/javascript"
       src="https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -67,21 +68,52 @@
 
         <!-- progressbar -->
         <ul id="progressbar">
-          <li class="step1 active">General Information</li>
-          <li class="step1" >Occupation</li>
-          <li class="step1">Income</li>
-          <li class="step1">Debt</li>
-          <li class="step1">Existing insurance</li>
-          <li class="step1">Health</li>
-          <li class="step1">Life Insurance - Needs Analysis</li>
-          <li class="step1">Disability Insurance - Needs Analysis</li>
-          <li class="step1">CRITICAL ILLNESS INSURANCE - NEEDS ANALYSIS</li>
+          <li class="step1 active" onclick="showTab(0)">General Information</li>
+          <li class="step1" onclick="showTab(1)">Occupation</li>
+          <li class="step1" onclick="showTab(2)">Income</li>
+          <li class="step1" onclick="showTab(3)">Debt</li>
+          <li class="step1" onclick="showTab(4)">Existing insurance</li>
+          <li class="step1" onclick="showTab(5)">Health</li>
+          <li class="step1" onclick="showTab(6)">Life Insurance - Needs Analysis</li>
+          <li class="step1" onclick="showTab(7)">Disability Insurance - Needs Analysis</li>
+          <li class="step1" onclick="showTab(8)">CRITICAL ILLNESS INSURANCE - NEEDS ANALYSIS</li>
         </ul>
+
+        <!-- <ul id="progressbar">
+          <li class="step1 active" onclick="showDirectTab(0)">General Information</li>
+          <li class="step1" onclick="showDirectTab(1)">Occupation</li>
+          <li class="step1" onclick="showDirectTab(2)">Income</li>
+          <li class="step1" onclick="showDirectTab(3)">Debt</li>
+          <li class="step1" onclick="showDirectTab(4)">Existing insurance</li>
+          <li class="step1" onclick="showDirectTab(5)">Health</li>
+          <li class="step1" onclick="showDirectTab(6)">Life Insurance - Needs Analysis</li>
+          <li class="step1" onclick="showDirectTab(7)" >Disability Insurance - Needs Analysis</li>
+          <li class="step1" onclick="showDirectTab(8)">CRITICAL ILLNESS INSURANCE - NEEDS ANALYSIS</li>
+        </ul> -->
 
         <!-- General Information -->
         <div class="tab">
           <div class="row">
             <h3 class="text-danger">Fact Find & Needs Analysis</h3>
+
+            <div class="row col-md-12 mt-3 recID1">
+              <div class="col-md-3">
+                <label for="recordID" class="form-label">record ID :</label>
+              </div>
+              <div class="col-md-9">
+                <input type="text" class="form-control" id="recordID" name="date">
+              </div>
+            </div>
+
+            <div class="row col-md-12 mt-3 recID2">
+              <div class="col-md-3">
+                <label for="recordIDC2" class="form-label">record ID C2:</label>
+              </div>
+              <div class="col-md-9">
+                <input type="text" class="form-control" id="recordIDC2" name="date">
+              </div>
+            </div>
+
             <div class="row col-md-12 mt-3">
               <div class="col-md-3">
                 <label for="date" class="form-label">Date :</label>
@@ -90,9 +122,10 @@
                 <input type="date" class="form-control" id="date" name="date">
               </div>
             </div>
+
             <div class="row col-md-12 mt-3">
               <div class="col-md-3">
-                <label for="advisorName" class="form-label">Advisor Name :</label>
+                <label for="advisorName" class="form-label">Created By :</label>
               </div>
               <div class="col-md-9">
                 <input type="text" class="form-control" id="advisorName"
@@ -102,17 +135,67 @@
 
             <div class="row col-md-12 mt-3">
               <div class="col-md-3">
-                <label for="referredBy" class="form-label">Referred By :</label>
+                <label for="referredBy" class="form-label required">Referred By :</label>
               </div>
               <div class="col-md-9">
                 <!-- <input type="text" class="form-control" id="referredBy"
                   placeholder name="referredBy"> -->
                 <select class="form-control" id="referredBy"
-                  placeholder name="referredBy">
-                  <option>None</option>
+                  placeholder name="referredBy" onchange="addValidOrInvalid(this)">
+                  <option value="">None</option>
                 </select>
               </div>
             </div>
+
+            <div class="row col-md-12 mt-3">
+              <div class="col-md-3">
+                <label for="leadOwner" class="form-label required">Lead Owner :</label>
+              </div>
+              <div class="col-md-9">
+                <!-- <input type="text" class="form-control" id="referredBy"
+                  placeholder name="referredBy"> -->
+                <select class="form-control" id="leadOwner"
+                  placeholder name="leadOwner" onchange="addValidOrInvalid(this)">
+                  <option value="">None</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row col-md-12 mt-3">
+              <div class="col-md-3">
+                <label for="advisor_Name" class="form-label required">Advisor Name :</label>
+              </div>
+              <div class="col-md-9">
+                <!-- <input type="text" class="form-control" id="referredBy"
+                  placeholder name="referredBy"> -->
+                <select class="form-control" id="advisor_Name"
+                  placeholder name="advisor_Name" onchange="addValidOrInvalid(this)">
+                  <option value="">None</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row col-md-12 mt-3">
+              <div class="col-md-3">
+                <label for="clientProfileName" class="form-label required">Client Profile Name :</label>
+              </div>
+              <div class="col-md-9">
+                <input type="text" class="form-control" id="clientProfileName"
+                  placeholder name="clientProfileName" onchange="addValidOrInvalid(this)">
+              </div>
+            </div>
+
+            <div class="row col-md-12 mt-3">
+              <div class="col-md-3">
+                <label for="policyName" class="form-label required">Policy Name :</label>
+              </div>
+              <div class="col-md-9">
+                <input type="text" class="form-control" id="policyName"
+                  placeholder name="policyName" onchange="addValidOrInvalid(this)">
+              </div>
+            </div>
+
+
           </div>
           <div class="row col-md-12 mt-4">
             <table class="table table-bordered ">
@@ -135,7 +218,7 @@
                       </div>
                       <div class="col-md-9">
                         <input type="text" class="form-control" id="firstName1"
-                          placeholder name="firstName1">
+                          placeholder name="firstName1" onchange="addValidOrInvalid(this)">
                       </div>
                     </div>
                   </td>
@@ -146,7 +229,7 @@
                       </div>
                       <div class="col-md-9">
                         <input type="text" class="form-control" id="firstName2"
-                          placeholder name="firstName2">
+                          placeholder name="firstName2" >
                       </div>
                     </div>
                   </td>
@@ -161,7 +244,7 @@
                       </div>
                       <div class="col-md-9">
                         <input type="text" class="form-control" id="lastName1"
-                          placeholder name="lastName1">
+                          placeholder name="lastName1" onchange="addValidOrInvalid(this)">
                       </div>
                     </div>
                   </td>
@@ -186,15 +269,15 @@
                       </div>
                       <div class="col-md-9">
                         <input type="date" class="form-control "
-                          id="dateOfBirth1" placeholder name="dateOfBirth1">
+                          id="dateOfBirth1" placeholder name="dateOfBirth1" onchange="addValidOrInvalid(this)">
                       </div>
                     </div>
                   </td>
+
                   <td>
                     <div class="row col-md-12">
                       <div class="col-md-3">
-                        <label for="dateOfBirth2" class="form-label">Date of
-                          Birth :</label>
+                        <label for="dateOfBirth2" class="form-label">Date of Birth :</label>
                       </div>
                       <div class="col-md-9">
                         <input type="date" class="form-control"
@@ -202,14 +285,13 @@
                       </div>
                     </div>
                   </td>
+              </tr>
 
-                </tr>
-                <tr>
-                  <td colspan="2">
-                    <div class="row col-md-12">
+              <tr>
+                  <td>
+                    <div class="row col-md-12 mt-3">
                       <div class="col-md-3">
-                        <label for="relationship" class="form-label">Relationship
-                          :</label>
+                        <label for="relationship" class="form-label">Relationship :</label>
                       </div>
                       <div class="col-md-9">
                         <input type="text" class="form-control"
@@ -217,7 +299,33 @@
                       </div>
                     </div>
                   </td>
+
+                  <td>
+                    <div class="row col-md-12 mt-3">
+                      <div class="col-md-3">
+                        <label for="relationship2" class="form-label">Relationship :</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control"
+                          id="relationship2" placeholder name="relationship2">
+                      </div>
+                    </div>
+                  </td>
+
                 </tr>
+                <!-- <tr>
+                  <td colspan="2">
+                    <div class="row col-md-12">
+                      <div class="col-md-3">
+                        <label for="relationship" class="form-label">Relationship :</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control"
+                          id="relationship" placeholder name="relationship">
+                      </div>
+                    </div>
+                  </td>
+                </tr> -->
 
                 <tr>
                   <td colspan="2">
@@ -249,22 +357,23 @@
                           <div class="col-md-4">
                             <input type="text" class="form-control" id="unit" placeholder name="unit">
                           </div>
-                          <div class="col-md-2"><label class="form-label" for="postalCode">Postal Code:</label></div>
-                          <div class="col-md-4">
-                            <input type="text" class="form-control" id="postalCode" placeholder name="unit">
-                          </div>
-                        </div>
-                        <div class="row my-3">
-                          <div class="col-md-2"><label class="form-label" for="city">City:</label></div>
-                          <div class="col-md-4">
-                            <input type="text" class="form-control" id="city" placeholder name="city">
-                          </div>
                           <div class="col-md-2"><label class="form-label" for="state">Province:</label></div>
                           <div class="col-md-4">
                             <select id="state" class="form-select">
                               <option>None</option>
                             </select>
                         </div>
+                        </div>
+                        <div class="row my-3">
+                          <div class="col-md-2"><label class="form-label" for="city">City:</label></div>
+                          <div class="col-md-4">
+                            <input type="text" class="form-control" id="city" placeholder name="city">
+                          </div>
+                          
+                        <div class="col-md-2"><label class="form-label" for="postalCode">Postal Code:</label></div>
+                          <div class="col-md-4">
+                            <input type="text" class="form-control" id="postalCode" placeholder name="unit">
+                          </div>
                         </div>   
                         </div>
                     </div>
@@ -305,8 +414,8 @@
                         <label for="phone1" class="form-label required">Phone :</label>
                       </div>
                       <div class="col-md-10">
-                        <input type="number" class="form-control" id="phone1"
-                          placeholder name="phone1">
+                        <input type="text" NumbersOnly="true" class="form-control" id="phone1"
+                          placeholder name="phone1" onchange="numberValidation(this)">
                       </div>
                     </div>
                   </td>
@@ -316,8 +425,8 @@
                         <label for="phone2" class="form-label">Phone :</label>
                       </div>
                       <div class="col-md-10">
-                        <input type="number" class="form-control" id="phone2"
-                          placeholder name="phone2">
+                        <input type="text" NumbersOnly="true" class="form-control" id="phone2"
+                          placeholder name="phone2"  onchange="numberValidation(this)">
                       </div>
                     </div>
                   </td>
@@ -330,8 +439,8 @@
                         <label for="mobile1" class="form-label">Mobile :</label>
                       </div>
                       <div class="col-md-10">
-                        <input type="number" class="form-control" id="mobile1"
-                          placeholder name="mobile1">
+                        <input type="text" NumbersOnly="true" class="form-control" id="mobile1"
+                          placeholder name="mobile1"  onchange="numberValidation(this)">
                       </div>
                     </div>
                   </td>
@@ -341,12 +450,11 @@
                         <label for="mobile2" class="form-label">Mobile :</label>
                       </div>
                       <div class="col-md-10">
-                        <input type="number" class="form-control" id="mobile2"
-                          placeholder name="mobile2">
+                        <input type="text" NumbersOnly="true" class="form-control" id="mobile2"
+                          placeholder name="mobile2"  onchange="numberValidation(this)">
                       </div>
                     </div>
                   </td>
-
                 </tr>
 
                 <tr>
@@ -411,6 +519,7 @@
               </tbody>
             </table>
           </div>
+          
 
         </div>
 
@@ -1079,26 +1188,26 @@
         </div>
         <!-- Existing Insurance -->
         <div class="tab">
-          <div class="row col-md-12 mt-4">
-            <table class="table table-bordered " id="existingInsuarnce">
+          <div class=" mt-4" style="overflow-x:auto;">
+            <table class="" id="existingInsuarnce">
               <thead>
-                <tr>
-                  <th class="text-danger" colspan="3">5. Existing Insurance</th>
+                <tr id="existingInsuarnceRows">
+                  <th class="text-danger" colspan="9">5. Existing Insurance</th>
                 </tr>
-                <tr>
-                  <th>Type</th>
-                  <th>Policy#</th>
-                  <th>Carrier</th>
-                  <th>Owner</th>
-                  <th>Insured</th>
-                  <th>Beneficiary</th>
-                  <th>Benefit Amount</th>
-                  <th>Premium</th>
-                  <th>Notes</th>
+                <tr id="existingInsuarnceRows">
+                  <th colspan="width: 250px;">Type</th>
+                  <th style="width: 250px;">Policy#</th>
+                  <th style="width: 250px;">Carrier</th>
+                  <th style="width: 250px;">Owner</th>
+                  <th style="width: 250px;">Insured</th>
+                  <th style="width: 250px;">Beneficiary</th>
+                  <th style="width: 250px;">Benefit Amount</th>
+                  <th style="width: 250px;">Premium</th>
+                  <th style="width: 250px;">Notes</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr id="existingInsuarnceRows">
                   <td class>
                     <input type="text" class="form-control insuranceType"
                       id="extIntype1" placeholder name="extIntype1">
@@ -1137,7 +1246,7 @@
                   </td>
                 </tr>
 
-                <tr>
+                <tr id="existingInsuarnceRows">
                   <td class>
                     <input type="text" class="form-control insuranceType"
                       id="extIntype2" placeholder name="extIntype2">
@@ -1176,7 +1285,7 @@
                   </td>
                 </tr>
 
-                <tr>
+                <tr id="existingInsuarnceRows">
                   <td class>
                     <input type="text" class="form-control insuranceType"
                       id="extIntype3" placeholder name="extIntype3">
@@ -1215,7 +1324,7 @@
                   </td>
                 </tr>
 
-                <tr>
+                <tr id="existingInsuarnceRows">
                   <td class>
                     <input type="text" class="form-control insuranceType"
                       id="extIntype4" placeholder name="extIntype4">
@@ -1254,7 +1363,7 @@
                   </td>
                 </tr>
 
-                <tr>
+                <tr id="existingInsuarnceRows">
                   <td class>
                     <input type="text" class="form-control insuranceType"
                       id="extIntype5" placeholder name="extIntype5">
@@ -1297,11 +1406,11 @@
           </div>
 
           <!-- <div class="row"> -->
-          <table class="table">
+          <table class="table" style="width: 100%;">
             <tr><td><p>Are you planning on replacing or cancelling any of the
                   above policies?</p>
                 <textarea cols="8" rows="2" id="planningNotes"
-                  style="width: 98%;"></textarea>
+                  style="width: 100%;"></textarea>
               </td></tr>
           </table>
 
@@ -1343,7 +1452,7 @@
 
               <tbody>
                 <tr>
-                  <td>
+                  <td style="width: 50%;">
                     <h5 class="text-center">Smoking Status</h5>
                     <p><i>Have you smoked anything in the past 12 months? Have
                         you used tobacco or nicotine in any form over the past
@@ -1420,10 +1529,10 @@
                     <p class="text-center">(Required for Critical Illness)</p>
                   </td>
                   <td class>
-                    <textarea rows="5" id="heightWeight1"></textarea>
+                    <textarea rows="5" id="familyHistory1"></textarea>
                   </td>
                   <td class>
-                    <textarea rows="5" id="heightWeight2"></textarea>
+                    <textarea rows="5" id="familyHistory2"></textarea>
                   </td>
                 </tr>
 
@@ -1470,7 +1579,7 @@
                 </tr>
 
                 <tr> <td>
-                    <textarea cols="180" rows="5" id="lifeAnalysis"></textarea></td>
+                    <textarea cols="180" rows="10" id="lifeAnalysis"></textarea></td>
                 </tr>
               </tbody>
             </table>
@@ -1515,7 +1624,7 @@
                 </tr>
 
                 <tr> <td>
-                    <textarea cols="180" rows="5" id="disabilityAnalysis"></textarea></td>
+                    <textarea cols="180" rows="10" id="disabilityAnalysis"></textarea></td>
                 </tr>
               </tbody>
             </table>
@@ -1533,13 +1642,13 @@
                     INSURANCE - NEEDS ANALYSIS</th>
                 </tr>
                 <tr>
-                  <td class colspan="3">Recovery time may vary depending on the
+                  <td class colspan="3" style="width: 50%;">Recovery time may vary depending on the
                     illness and/or the severity of the illness. As a general
                     rule of thumb, it is a good idea to
                     calculate approximately six months of expenses</td>
                 </tr>
                 <tr>
-                  <th></th>
+                  <th style="width: 50%;"></th>
                   <th class="text-center">Client 1</th>
                   <th class="text-center">Client 2</th>
                 </tr>
@@ -1662,6 +1771,9 @@
 
         <!-- Previous/Next Button Starts Here-->
         <div style="overflow:auto;">
+          <div style="float:left;">
+            <button type="button" id="saveAsFor" onclick="saveOnEachTab()">Save</button>
+          </div>
           <div style="float:right;">
             <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
             <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
