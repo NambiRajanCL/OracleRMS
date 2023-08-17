@@ -60,7 +60,15 @@ button:hover {
 
 input.invalid {
     background-color: #ffdddd;
+    border-color:  #ffdddd;
 }
+
+select.invalid {
+    background-color: #ffdddd;
+    border-color:  #ffdddd;
+}
+
+
 
 /*CSS for Spinner*/
 /* Center the loader */
@@ -131,7 +139,7 @@ textarea {
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
   } */
 
-  #progressbar {
+#progressbar {
 	margin-bottom: 30px;
 	overflow: hidden;
 	/*CSS counters to number the steps*/
@@ -177,7 +185,7 @@ textarea {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,  #progressbar li.active:after{
-	background: #27AE60;
+	background: #f6a037;
 	color: white;
 }
 
@@ -186,9 +194,24 @@ textarea {
 	color: white;
 }
 
+#progressbar li.finish.active:before, #progressbar li.finish.active:after {
+    background: #f6a037;
+	color: white;
+}
+
 .step1 {
     text-align: center;
     /* color: #000; */
+}
+
+#existingInsuarnce th,#existingInsuarnce td
+{
+    border: 1px solid #202020;
+    padding: 5px;
+}
+#existingInsuarnce{
+    width: 2250px;
+
 }
 
 /* .zc-pb-tile-card
